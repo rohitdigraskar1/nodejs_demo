@@ -1,0 +1,30 @@
+{
+    "ABC123":{
+        "S":{
+            "quantity":10,
+            "price":1000
+        },
+        "M":{
+            "quantity":5,
+            "price":1100
+        },
+        "L":{
+            "quantity":7,
+            "price":1500
+        }
+    },
+    "FGH456":{
+            "S":{
+                "quantity":5,
+                "price":799
+            },
+            "M":{
+                "quantity":9,
+                "price":900
+            },
+            "L":{
+                "quantity":4,
+                "price":1000
+            }
+        }
+}
