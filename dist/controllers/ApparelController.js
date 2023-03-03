@@ -3,8 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class ApparelController {
     static addApparel(req, res) {
         const { code, sizes } = req.body;
-        const reqbody = req.body;
-        console.log(reqbody);
+        // const reqbody:Apparel = req.body;
+        console.log({ code, sizes });
+        // console.log("from req body")
         const index = ApparelController.stock.findIndex((apparel) => apparel.code === code);
         if (index !== -1) {
             //if apparels exist we need to update the sizes only
@@ -18,6 +19,17 @@ class ApparelController {
         }
         //return response
         res.status(200).json({ message: "Apparel added successfully." });
+    }
+    static getApparel(req, res) {
+        const code = req.params.code;
+        //finding apparel with the code
+        const apparel = ApparelController.stock.find((apparel) => apparel.code === code);
+        if (!apparel) {
+            res.status(404).json({ error: "Apparel did not found" });
+        }
+        else {
+            res.status(200).json(apparel);
+        }
     }
 }
 ApparelController.stock = [];

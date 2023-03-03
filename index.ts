@@ -9,7 +9,8 @@ dotenv.config();
 
 const port= process.env.PORT || 3200;
 console.log("hello");
-app.use(routes.getRoutes());
+app.use(express.json(),express.raw(),routes.getRoutes());
+
 app.listen(port,()=>{
     console.log(`server is listening to port ${port}`);
 });

@@ -10,7 +10,7 @@ import ApparelController from "../controllers/ApparelController";
         this.setRoutes();
     }
 
-     getRoutes():Router{
+    public getRoutes():Router{
 
         return this.router;
 

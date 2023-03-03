@@ -10,6 +10,7 @@ const routes = new ApparelRoutes_1.default();
 const app = (0, express_1.default)();
 dotenv_1.default.config();
 const port = process.env.PORT || 3200;
+console.log("hello");
 app.use(routes.getRoutes());
 app.listen(port, () => {
     console.log(`server is listening to port ${port}`);
