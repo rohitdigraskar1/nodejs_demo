@@ -1,20 +1,30 @@
 import { Request,Response } from "express";
+// import fs from "fs";
 import Apparel from "../models/Apparel";
 
 class ApparelController {
     private static stock: Apparel[]=[];
 
     public static addApparel(req:Request,res:Response):void{
-        const {code,sizes}=req.body;
-        // const reqbody:Apparel = req.body;
-
-        console.log({code,sizes});
-        // console.log("from req body")
+        let reqbody= req.body;
+        console.log(reqbody);
+        const {code,sizes}=reqbody;
+        console.log(JSON.stringify({code,sizes}));
+        console.log("from req body")
 
 const index = ApparelController.stock.findIndex(
     (apparel)=> apparel.code === code
 )
-
+// const getData =(req:Request,res:Response)=>{
+//     fs.readFile("data.json,"utf8",(err,data)=>{
+//         if(err){
+//             console.error(err);
+//             res.status(500).send("error in readng the file");
+//             return;
+//         }
+//         const jsonData = JSON.parse(data)
+//         res.json(jsonData);
+//     })
 if(index !== -1) {
     //if apparels exist we need to update the sizes only
     for (const size in sizes) {
